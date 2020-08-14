@@ -1,4 +1,4 @@
-How to actually set up WordPress on Ubuntu 20 on EC2
+# How to actually set up WordPress on Ubuntu 20 on EC2
 1. Launch an EC2 instance with Ubuntu, set up your ssh config, security group, etc. making sure TCP 80, 443, and 22 are exposed.
 2. Get an ENI and associate it with the instance, make a DNS A record pointing to it.
 3. `ssh -i yourkey.pem ubuntu@yourdomainname.com`
@@ -70,7 +70,7 @@ then edit `/etc/apache2/apache2.conf`, find the block that starts `<Directory /v
 20 0  * * 1 apt update && apt upgrade -y
 ```
 
-13. Go to yourdomainname.com/wp-admin and set up WordPress. At some point in there, go to Settings->Permalinkx and change "Common Settings" to "Post name" (to take out the `/index.php/` on every page). Then in your ssh session, `sudo nano /var/www/html/.htaccess` and add contents:
+13. Go to yourdomainname.com/wp-admin and set up WordPress. At some point in there, go to Settings->Permalinks and change "Common Settings" to "Post name" (to take out the `/index.php/` on every page). Then in your ssh session, `sudo nano /var/www/html/.htaccess` and add contents:
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine On
